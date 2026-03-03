@@ -4,17 +4,16 @@
 <meta charset="UTF-8">
 <title>Happy Birthday Blossom ❤️</title>
 <style>
-  /* Soft gradient background */
+  /* Soft cool gradient background */
   body {
     margin: 0;
     font-family: 'Georgia', serif;
-    background: linear-gradient(to bottom right, #f8c3c3, #c3d8f8);
+    background: linear-gradient(to bottom right, #a3cef1, #cfd8dc);
     color: #333;
     text-align: center;
     overflow-x: hidden;
   }
 
-  /* Container for content */
   .container {
     padding: 80px 20px;
     position: relative;
@@ -23,7 +22,7 @@
 
   h1 {
     font-size: 48px;
-    color: #8b2c8c;
+    color: #3a3a7b;
     margin-bottom: 20px;
   }
 
@@ -32,7 +31,7 @@
     max-width: 600px;
     margin: 20px auto;
     line-height: 1.6;
-    color: #444;
+    color: #333;
   }
 
   button {
@@ -40,7 +39,7 @@
     font-size: 18px;
     border-radius: 30px;
     border: none;
-    background: #8b2c8c;
+    background: #3a3a7b;
     color: white;
     cursor: pointer;
     margin-top: 30px;
@@ -48,14 +47,38 @@
   }
 
   button:hover {
-    background: #b14cbf;
+    background: #5c5cad;
   }
 
   #secret {
     display: none;
     margin-top: 40px;
     font-size: 22px;
-    color: #444;
+    color: #333;
+  }
+
+  /* Floating balloons */
+  .balloon {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: #5c9ead;
+    border-radius: 20px 20px 0 0;
+    animation: balloonUp 6s infinite;
+  }
+  .balloon::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: #555;
+    bottom: -15px;
+    left: 50%;
+  }
+  @keyframes balloonUp {
+    0% { transform: translateY(600px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-200px); opacity: 0; }
   }
 
   /* Floating hearts */
@@ -93,41 +116,46 @@
     100% { transform: translate(-50%, -600px) rotate(-45deg); opacity: 0; }
   }
 
-  /* Floating balloons */
-  .balloon {
-    position: absolute;
-    width: 40px;
-    height: 60px;
-    background: #ff6b6b;
-    border-radius: 20px 20px 0 0;
-    animation: balloonUp 6s infinite;
-  }
-  .balloon::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 15px;
-    background: #555;
-    bottom: -15px;
-    left: 50%;
-  }
-  @keyframes balloonUp {
-    0% { transform: translateY(600px); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-200px); opacity: 0; }
-  }
-
-  /* Cake image */
-  .cake {
+  /* Cake with candle */
+  .cake-container {
+    position: relative;
+    display: inline-block;
     margin-top: 40px;
-    width: 150px;
-    animation: cakeBounce 2s ease infinite alternate;
-  }
-  @keyframes cakeBounce {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
   }
 
+  .cake {
+    width: 150px;
+  }
+
+  .candle {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 40px;
+    background: #f4d03f;
+    border-radius: 2px;
+  }
+
+  /* Flame */
+  .flame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 20px;
+    background: radial-gradient(circle at 50% 50%, #ffcf33, #ff6b6b);
+    border-radius: 50%;
+    animation: flicker 0.5s infinite alternate;
+  }
+
+  @keyframes flicker {
+    0% { transform: translateX(-50%) scaleY(1) scaleX(1); opacity: 1; }
+    50% { transform: translateX(-50%) scaleY(1.2) scaleX(0.8); opacity: 0.9; }
+    100% { transform: translateX(-50%) scaleY(0.9) scaleX(1.1); opacity: 1; }
+  }
 </style>
 </head>
 <body>
@@ -148,11 +176,15 @@
 <div class="container">
   <h1>Happy 19th Birthday, Blossom ❤️</h1>
 
-  <!-- Cake -->
-  <img class="cake" src="https://i.postimg.cc/8cZY5Ryt/cake.png" alt="Birthday Cake">
+  <!-- Cake with lit candle -->
+  <div class="cake-container">
+    <img class="cake" src="https://i.postimg.cc/8cZY5Ryt/cake.png" alt="Birthday Cake">
+    <div class="candle"></div>
+    <div class="flame"></div>
+  </div>
 
   <p>
-    Since we started talking in August 2024, every moment with you has been magical. I’ve always dreamed of being with you, and today I celebrate <strong>you</strong> — your smile, your beauty, your intelligence, your charisma.  
+    Since we started talking in August 2024, every moment with you has been magical. I’ve always dreamed of being with you, and today I celebrate you — your smile, your beauty, your intelligence, your charisma.  
     You’re my best friend, my four eyes, my nerd, my dweeb, my lover… everything I could ever wish for.  
     I am so grateful for you, and I hope this year brings you as much joy as you bring to my life every day.
   </p>
@@ -160,18 +192,22 @@
   <button onclick="reveal()">Click to see my heart 💖</button>
 
   <div id="secret">
-    <p>Forever yours,</p>
+    <p>Yours faithfully,</p>
     <p><strong>Alexis 💖</strong></p>
-    <p style="margin-top:20px; font-size:18px; color:#8b2c8c;">
+    <p style="margin-top:20px; font-size:18px; color:#3a3a7b;">
       P.S. I love you so much I had to learn coding to design this site… with a bit of AI 😂
     </p>
   </div>
 </div>
 
-<!-- Optional soft background music -->
-<audio autoplay loop>
-  <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.wav" type="audio/wav">
-</audio>
+<!-- Background song: Until I Found You by Stephen Sanchez -->
+<div style="display:none;">
+  <iframe width="0" height="0" 
+    src="https://www.youtube.com/embed/1AoU--FMCrU?autoplay=1&loop=1&playlist=1AoU--FMCrU" 
+    title="Until I Found You - Stephen Sanchez" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media"></iframe>
+</div>
 
 <script>
 function reveal() {
