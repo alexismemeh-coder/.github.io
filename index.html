@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Love ❤️</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+  text-align: center;
+  color: white;
+}
+
+.container {
+  padding: 80px 20px;
+}
+
+h1 {
+  font-size: 45px;
+}
+
+p {
+  font-size: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+button {
+  padding: 15px 35px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  color: #a64ac9;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+button:hover {
+  background: pink;
+}
+
+#secret {
+  display: none;
+  margin-top: 40px;
+  font-size: 22px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Happy Birthday ❤️</h1>
+
+  <p>
+    The world became brighter the day you were born.
+    And my world became softer the day I met you.
+  </p>
+
+  <button onclick="reveal()">Click to see my heart</button>
+
+  <div id="secret">
+    <p>
+      I don’t just celebrate your birthday.
+      I celebrate the blessing of having you in my life.
+    </p>
+    <p>Forever yours ❤️</p>
+  </div>
+</div>
+
+<script>
+function reveal() {
+  document.getElementById("secret").style.display = "block";
+}
+</script>
+
+</body>
+</html>
